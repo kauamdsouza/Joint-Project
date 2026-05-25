@@ -1,0 +1,259 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, sans-serif;
+}
+
+body{
+  overflow-x:hidden;
+  background:#000;
+}
+
+.hero{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  gap:50px;
+  position:relative;
+  overflow:hidden;
+  color:white;
+
+  background:
+    radial-gradient(circle at top, rgba(255,0,180,0.45), transparent 35%),
+    radial-gradient(circle at bottom, rgba(120,0,255,0.45), transparent 40%),
+    linear-gradient(135deg, #050008, #160020, #320044, #000);
+
+  animation:fundo 12s ease infinite alternate;
+}
+
+/* BOLHA DE ENERGIA */
+.hero::before{
+  content:"";
+  position:absolute;
+  width:450px;
+  height:450px;
+  background:rgba(255,0,200,0.25);
+  border-radius:50%;
+  filter:blur(80px);
+  animation:energia 6s infinite alternate ease-in-out;
+}
+
+/* LINHA BRILHANTE */
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,0.08),
+      transparent
+    );
+  transform:skewY(-10deg);
+  animation:scan 6s linear infinite;
+}
+
+/* CONTEÚDO */
+.content{
+  position:relative;
+  z-index:2;
+  animation:entrada 1.5s ease;
+}
+
+.content h1{
+  font-size:4.5rem;
+  text-transform:uppercase;
+  letter-spacing:4px;
+  color:#ff4fd8;
+
+  text-shadow:
+    0 0 10px #ff00c8,
+    0 0 25px #b300ff,
+    0 0 45px #ff00c8;
+
+  animation:glow 2s infinite alternate;
+}
+
+.content p{
+  font-size:1.4rem;
+  margin:20px 0 30px;
+  color:#f3d6ff;
+
+  animation:fadeUp 2s ease;
+}
+
+/* BOTÃO */
+.content button{
+  padding:14px 35px;
+  border:none;
+  border-radius:30px;
+  background:linear-gradient(135deg, #ff00c8, #7600ff);
+  color:white;
+  font-size:1rem;
+  font-weight:bold;
+  cursor:pointer;
+
+  box-shadow:0 0 25px rgba(255,0,200,0.7);
+
+  transition:0.3s;
+
+  animation:pulse 2s infinite;
+}
+
+.content button:hover{
+  transform:scale(1.08) rotate(-2deg);
+  box-shadow:0 0 40px rgba(255,0,200,1);
+}
+
+/* CARD */
+.desenvolvedores{
+  position:relative;
+  z-index:2;
+  background:rgba(20,0,30,0.65);
+  padding:25px 45px;
+  border-radius:20px;
+  border:1px solid rgba(255,0,200,0.4);
+  backdrop-filter:blur(10px);
+
+  box-shadow:
+    0 0 20px rgba(255,0,200,0.4),
+    inset 0 0 20px rgba(120,0,255,0.2);
+
+  min-width:320px;
+
+  animation:flutuar 4s ease-in-out infinite;
+}
+
+.desenvolvedores h2{
+  margin-bottom:15px;
+  color:#ff7be9;
+  text-shadow:0 0 10px #ff00c8;
+
+  animation:glow 2s infinite alternate;
+}
+
+.desenvolvedores p{
+  margin:10px 0;
+  color:#f5e6ff;
+  font-weight:500;
+
+  animation:fadeText 3s ease;
+}
+
+/* ========================= */
+/* ANIMAÇÕES */
+/* ========================= */
+
+@keyframes energia{
+  0%{
+    transform:translate(-200px,-120px) scale(1);
+  }
+
+  100%{
+    transform:translate(220px,120px) scale(1.3);
+  }
+}
+
+@keyframes glow{
+  0%{
+    text-shadow:
+      0 0 10px #ff00c8,
+      0 0 20px #b300ff;
+  }
+
+  100%{
+    text-shadow:
+      0 0 20px #ff00c8,
+      0 0 40px #ff00c8,
+      0 0 70px #b300ff;
+  }
+}
+
+@keyframes pulse{
+  0%{
+    transform:scale(1);
+  }
+
+  50%{
+    transform:scale(1.05);
+  }
+
+  100%{
+    transform:scale(1);
+  }
+}
+
+@keyframes flutuar{
+  0%{
+    transform:translateY(0px);
+  }
+
+  50%{
+    transform:translateY(-15px);
+  }
+
+  100%{
+    transform:translateY(0px);
+  }
+}
+
+@keyframes scan{
+  0%{
+    transform:translateX(-100%) skewY(-10deg);
+  }
+
+  100%{
+    transform:translateX(100%) skewY(-10deg);
+  }
+}
+
+@keyframes entrada{
+  from{
+    opacity:0;
+    transform:translateY(60px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(20px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+@keyframes fadeText{
+  from{
+    opacity:0;
+    letter-spacing:10px;
+  }
+
+  to{
+    opacity:1;
+    letter-spacing:1px;
+  }
+}
+
+@keyframes fundo{
+  0%{
+    filter:hue-rotate(0deg);
+  }
+
+  100%{
+    filter:hue-rotate(25deg);
+  }
+}
