@@ -4,11 +4,15 @@
 
         <h1>Login</h1>
 
+        <input type="text" placeholder="Usuário" [(ngModel)]="usuario.nome">
 
-        <input type="text" placeholder="Usuário">
-        <input type="password" placeholder="Senha">
+        <input type="password" placeholder="Senha" [(ngModel)]="usuario.senha">
 
-        <button class="login-btn">Enter</button>
+        <input type="email" placeholder="Email" [(ngModel)]="usuario.email">
+
+        <button class="login-btn" (click)="criarUsuario()">
+            Enter
+        </button>
 
         <button class="return-btn" routerLink="/">
             ⟵ Return
