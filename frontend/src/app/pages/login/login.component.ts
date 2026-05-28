@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
   imports: [
+    CommonModule,
     RouterLink,
     FormsModule
   ],
@@ -14,28 +16,67 @@ import { HttpClient } from '@angular/common/http';
 })
 export class LoginComponent {
 
-  usuario = {
-    nome: '',
+  mensagemErro = ''
+
+  user = {
+    name: '',
     email: '',
-    senha: ''
+    password: ''
   }
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private router: Router
+  ) { }
 
-  criarUsuario() {
+  createUser() {
 
     this.http.post(
       'http://localhost:3000/users',
-      this.usuario
+      this.user
     )
       .subscribe({
+
         next: (res) => {
-          console.log('Sucesso:', res)
+          this.mensagemErro = ''
+          console.log("Login Concluido")
+          this.router.navigate(['/dashboard'])
         },
 
         error: (err) => {
-          console.log('Erro:', err)
+          this.mensagemErro = err.error.message
         }
+
+      })
+  }
+
+
+
+  login() {
+
+    this.http.post(
+      'http://localhost:3000/login',
+      {
+        name: this.user.name,
+        password: this.user.password
+      }
+    )
+      .subscribe({
+
+        next: (res) => {
+
+          console.log("Login Concluido")
+          this.router.navigate(['/dashboard'])
+
+        },
+
+        error: (err) => {
+          console.log(err.error.message)
+          this.mensagemErro = err.error.message
+        }
+
+
+
       })
 
   }
