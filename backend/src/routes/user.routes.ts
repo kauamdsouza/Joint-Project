@@ -5,4 +5,6 @@ const router = Router()
 
 router.post('/users', userController.createUser)
 
-export default router           
+router.post('/login', userController.login)
+
+export default router

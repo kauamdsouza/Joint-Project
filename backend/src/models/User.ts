@@ -9,7 +9,7 @@ const User = connection.define('users', {
         primaryKey: true
     },
 
-    nome: {
+    name: {
         type: DataTypes.STRING,
         allowNull: false
     },
@@ -19,11 +19,13 @@ const User = connection.define('users', {
         allowNull: false
     },
 
-    senha: {
+    password: {
         type: DataTypes.STRING,
         allowNull: false
     }
 
+}, {
+    timestamps: true
 })
 
 export default User
