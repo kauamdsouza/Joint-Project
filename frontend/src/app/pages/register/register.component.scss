@@ -17,7 +17,6 @@ body{
   display:flex;
   justify-content:center;
   align-items:center;
-  gap:80px;
 
   position:relative;
   overflow:hidden;
@@ -30,19 +29,29 @@ body{
   animation:fundo 12s infinite alternate;
 }
 
+/* ENERGIA */
+
 .hero::before{
   content:"";
   position:absolute;
+
   width:500px;
   height:500px;
+
   background:rgba(255,0,200,.25);
+
   border-radius:50%;
+
   filter:blur(100px);
+
   animation:energia 8s infinite alternate;
 }
 
+/* LINHA ESCANEANDO */
+
 .hero::after{
   content:"";
+
   position:absolute;
   inset:0;
 
@@ -55,19 +64,21 @@ body{
   );
 
   transform:skewY(-10deg);
+
   animation:scan 6s linear infinite;
 }
 
-/* CARDS */
+/* CARD */
 
-.register-card,
-.login-card{
+.register-card{
   z-index:2;
 
   width:400px;
+
   padding:40px;
 
   border-radius:25px;
+
   text-align:center;
 
   backdrop-filter:blur(15px);
@@ -85,8 +96,9 @@ body{
     flutuar 4s infinite ease-in-out;
 }
 
-.register-card h1,
-.login-card h1{
+/* TITULO */
+
+.register-card h1{
   color:#ff4fd8;
 
   font-size:3rem;
@@ -104,8 +116,7 @@ body{
 
 /* INPUTS */
 
-.register-card input,
-.login-card input{
+.register-card input{
   width:100%;
 
   padding:15px;
@@ -127,13 +138,11 @@ body{
   transition:.4s;
 }
 
-.register-card input::placeholder,
-.login-card input::placeholder{
+.register-card input::placeholder{
   color:#d8a5ff;
 }
 
-.register-card input:focus,
-.login-card input:focus{
+.register-card input:focus{
   transform:scale(1.03);
 
   border:1px solid #ff00c8;
@@ -150,8 +159,7 @@ body{
   font-size:14px;
 }
 
-.register-card button,
-.login-card button{
+.register-card button{
   width:100%;
 
   padding:15px;
@@ -179,10 +187,11 @@ body{
     0 0 20px rgba(255,0,200,.7);
 
   animation:pulse 2s infinite;
+
+  transition:.4s;
 }
 
-.register-card button:hover,
-.login-card button:hover{
+.register-card button:hover{
   transform:scale(1.05);
 }
 
@@ -212,16 +221,20 @@ body{
 /* ANIMAÇÕES */
 
 @keyframes energia{
+
   0%{
     transform:translate(-250px,-150px);
   }
 
   100%{
-    transform:translate(250px,150px) scale(1.5);
+    transform:translate(250px,150px)
+    scale(1.5);
   }
+
 }
 
 @keyframes glow{
+
   0%{
     text-shadow:
       0 0 10px #ff00c8;
@@ -232,9 +245,11 @@ body{
       0 0 30px #ff00c8,
       0 0 70px #b300ff;
   }
+
 }
 
 @keyframes pulse{
+
   0%{
     transform:scale(1);
   }
@@ -246,9 +261,11 @@ body{
   100%{
     transform:scale(1);
   }
+
 }
 
 @keyframes flutuar{
+
   0%{
     transform:translateY(0);
   }
@@ -260,19 +277,25 @@ body{
   100%{
     transform:translateY(0);
   }
+
 }
 
 @keyframes scan{
+
   0%{
-    transform:translateX(-100%) skewY(-10deg);
+    transform:translateX(-100%)
+    skewY(-10deg);
   }
 
   100%{
-    transform:translateX(100%) skewY(-10deg);
+    transform:translateX(100%)
+    skewY(-10deg);
   }
+
 }
 
 @keyframes entrada{
+
   from{
     opacity:0;
     transform:translateY(50px);
@@ -282,9 +305,11 @@ body{
     opacity:1;
     transform:translateY(0);
   }
+
 }
 
 @keyframes fundo{
+
   0%{
     filter:hue-rotate(0deg);
   }
@@ -292,4 +317,5 @@ body{
   100%{
     filter:hue-rotate(20deg);
   }
+
 }

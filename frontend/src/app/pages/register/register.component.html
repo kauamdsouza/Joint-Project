@@ -1,23 +1,25 @@
 <div class="hero">
 
-    <div class="login-card">
-        <h1>Login</h1>
+    <div class="register-card">
+        <h1>Register</h1>
 
         <input type="text" placeholder="User" [(ngModel)]="user.name">
 
         <input type="password" placeholder="Password" [(ngModel)]="user.password">
 
-        <button class="login-btn" (click)="login()">
+        <input type="email" placeholder="Email" [(ngModel)]="user.email" #email="" ngModel="required">
+
+        <button class="register-btn" (click)="createUser()">
             Enter
         </button>
 
-        <p *ngIf="mensagemErro" class="erro">
+        <p class="erro" *ngIf="mensagemErro">
             {{ mensagemErro }}
         </p>
 
         <button class="return-btn" routerLink="/">
             ⟵ Return
         </button>
-    </div>
 
-</div>
+
+    </div>
