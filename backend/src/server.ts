@@ -2,14 +2,16 @@ import express from 'express'
 import cors from 'cors'
 
 import connection from './database/connection'
-import router from './routes/user.routes'
+import userRoutes from './routes/user.routes'
+import reportRoutes from './routes/report.routes'
 
 const app = express()
 
 app.use(cors())
 app.use(express.json())
 
-app.use(router)
+app.use(userRoutes)
+app.use(reportRoutes)
 
 connection.sync()
     .then(() => {
