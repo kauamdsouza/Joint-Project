@@ -1,0 +1,28 @@
+<div class="report-page">
+    <form class="report-card">
+        <div class="report-header">
+            <span class="tag">Bug report</span>
+            <h1>Reportar problema</h1>
+            <p>Informe o erro encontrado para que a equipe possa analisar.</p>
+        </div>
+
+        <label>Título</label>
+        <input [(ngModel)]="bug.title" name="title" placeholder="Ex: Erro ao fazer login">
+
+        <label>Descrição</label>
+        <textarea [(ngModel)]="bug.description" name="description" placeholder="Explique o que aconteceu..."></textarea>
+
+        <label>Página</label>
+        <input [(ngModel)]="bug.page" name="page" placeholder="Ex: /login">
+
+        <button type="button" (click)="sendBug()">
+            Enviar report
+        </button>
+
+        <button class="return-btn" routerLink="/dashboard">
+            ⟵ Return
+        </button>
+
+
+    </form>
+</div>
