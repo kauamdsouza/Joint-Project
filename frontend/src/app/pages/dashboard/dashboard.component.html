@@ -4,14 +4,12 @@
 
         <h2>Sistema</h2>
 
-        <a routerLink="/requests">Requests</a>
+        <a (click)="abrirJogo()">PokeGame</a>
 
         <a routerLink="/users">Users</a>
 
-
-
-
         <a routerLink="/settings">Configurations</a>
+
         <a class="report-btn" (click)="report()">
             Report problems
         </a>
@@ -19,12 +17,17 @@
         <a class="logout-btn" (click)="logout()">
             ⟵ Logout
         </a>
+
     </aside>
 
     <main class="content">
 
-        <h1>Bem-vindo ao Dashboard</h1>
-        <p>Selecione uma opção no menu.</p>
+        <div *ngIf="!mostrarJogo">
+            <h1>Bem-vindo ao Dashboard</h1>
+            <p>Selecione uma opção no menu.</p>
+        </div>
+
+        <app-pokemon-game *ngIf="mostrarJogo"></app-pokemon-game>
 
     </main>
 

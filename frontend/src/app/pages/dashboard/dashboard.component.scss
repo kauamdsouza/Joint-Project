@@ -267,3 +267,134 @@ body{
     transform:translateY(0);
   }
 }
+.monster-area {
+  position: relative;
+  margin-top: 30px;
+  width: 520px;
+  height: 530px;
+  
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 35px;
+  background: radial-gradient(circle, rgba(120, 0, 160, .45), rgba(0, 0, 0, .75));
+  box-shadow:
+    0 0 45px rgba(255, 0, 200, .65),
+    inset 0 0 45px rgba(0, 0, 0, .8);
+
+  overflow: hidden;
+}
+
+.monster-area img {
+  width: 450px;
+  z-index: 3;
+  filter:
+    drop-shadow(0 0 18px #ff00c8)
+    drop-shadow(0 0 35px #6b00ff);
+
+  animation: scaryFloat 2.4s ease-in-out infinite;
+}
+
+@keyframes scaryFloat {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+
+  50% {
+    transform: translateY(-18px) scale(1.08);
+  }
+}
+
+.smoke {
+  position: absolute;
+  bottom: 20px;
+  width: 150px;
+  height: 150px;
+  background: rgba(180, 0, 255, .25);
+  border-radius: 50%;
+  filter: blur(35px);
+  animation: smokeMove 4s infinite ease-in-out;
+}
+
+.smoke1 {
+  left: 40px;
+}
+
+.smoke2 {
+  right: 40px;
+  animation-delay: 1.5s;
+}
+
+@keyframes smokeMove {
+  0% {
+    transform: translateY(40px) scale(.8);
+    opacity: .2;
+  }
+
+  50% {
+    transform: translateY(-40px) scale(1.4);
+    opacity: .7;
+  }
+
+  100% {
+    transform: translateY(-90px) scale(1.8);
+    opacity: 0;
+  }
+}
+
+.chain {
+  position: absolute;
+  top: 20px;
+  font-size: 70px;
+  color: #d9c7ff;
+  opacity: .55;
+  z-index: 2;
+  text-shadow: 0 0 18px #ff00c8;
+  animation: chainMove 2s infinite ease-in-out;
+}
+
+.left-chain {
+  left: 25px;
+  transform: rotate(-25deg);
+}
+
+.right-chain {
+  right: 25px;
+  transform: rotate(25deg);
+}
+
+@keyframes chainMove {
+  0%, 100% {
+    margin-top: 0;
+  }
+
+  50% {
+    margin-top: 12px;
+  }
+}
+.game-area{
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+
+#game{
+  width:520px;
+  height:320px;
+
+  background:
+    radial-gradient(circle at center,
+    rgba(60,0,90,.6),
+    #050008 80%);
+
+  border:2px solid #ff00c8;
+  border-radius:25px;
+
+  box-shadow:
+    0 0 25px rgba(255,0,200,.5),
+    inset 0 0 40px rgba(255,0,200,.15);
+
+  position:relative;
+}
