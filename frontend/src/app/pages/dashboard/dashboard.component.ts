@@ -3,18 +3,22 @@ import { Router } from '@angular/router';
 import { RouterLink } from '@angular/router';
 import { PokemonGameComponent } from '../pokemon-game/pokemon-game.component';
 import { CommonModule } from '@angular/common';
-
+import { GastosComponent } from '../gastos/gastos.component';
+import { ConfigComponent } from '../config/config.component';
 @Component({
   selector: 'app-dashboard',
   imports: [
     RouterLink,
     CommonModule,
-    PokemonGameComponent
+    PokemonGameComponent,
+    GastosComponent,
+    ConfigComponent,
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })
 export class DashboardComponent implements AfterViewInit {
+  tela: 'home' | 'jogo' | 'gastos' | 'config' = 'home';
 
   player = {
     x: 50,
@@ -26,7 +30,6 @@ export class DashboardComponent implements AfterViewInit {
   canvas!: HTMLCanvasElement;
   ctx!: CanvasRenderingContext2D;
 
-  mostrarJogo = false;
 
   constructor(private router: Router) { }
 
@@ -62,6 +65,14 @@ export class DashboardComponent implements AfterViewInit {
     this.draw();
   }
 
+  ngOnInit() {
+    const theme = localStorage.getItem('theme');
+
+    if (theme === 'dark') {
+      document.body.classList.add('dark-theme');
+    }
+  }
+
   draw() {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
@@ -83,6 +94,25 @@ export class DashboardComponent implements AfterViewInit {
   }
 
   abrirJogo() {
-    this.mostrarJogo = true;
+    this.tela = 'jogo';
   }
-}
+
+  abrirGastos() {
+    this.tela = 'gastos';
+  }
+
+  abrirConfig() {
+    this.tela = 'config';
+  }
+
+  setTheme(theme: string) {
+    if (theme === 'dark') {
+      document.body.classList.add('dark-theme');
+    } else {
+      document.body.classList.remove('dark-theme');
+    }
+
+    localStorage.setItem('theme', theme);
+  }
+
+} 
