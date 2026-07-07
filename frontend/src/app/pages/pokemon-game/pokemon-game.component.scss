@@ -1,260 +1,256 @@
 .gym {
-  min-height: 100%;
-  padding: 40px;
-  color: white;
+min-height: 100%;
+padding: 40px;
+color: var(--text-main);
 }
 
 .arena {
-  min-height: 620px;
-  border-radius: 30px;
-  padding: 35px;
-  position: relative;
-  overflow: hidden;
+min-height: 620px;
+border-radius: 30px;
+padding: 35px;
+position: relative;
+overflow: hidden;
 
-  background:
-    radial-gradient(circle at center, rgba(255, 0, 200, .35), transparent 35%),
-    linear-gradient(180deg, #190020, #09000f);
+background:
+radial-gradient(circle at center, var(--primary) 0%, transparent 35%),
+linear-gradient(180deg, var(--secondary), var(--bg-main));
 
-  border: 2px solid rgba(255, 0, 200, .35);
+border: 2px solid var(--primary);
 
-  box-shadow:
-    0 0 40px rgba(255, 0, 200, .35),
-    inset 0 0 80px rgba(120, 0, 255, .3);
+box-shadow:
+0 0 40px var(--primary),
+inset 0 0 80px var(--secondary);
 }
 
 .arena::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(90deg, transparent 48%, rgba(255,255,255,.08) 50%, transparent 52%),
-    radial-gradient(circle at center, transparent 0 80px, rgba(255,255,255,.08) 82px 85px, transparent 87px);
-  opacity: .45;
+content: "";
+position: absolute;
+inset: 0;
+background:
+linear-gradient(90deg, transparent 48%, rgba(255,255,255,.08) 50%, transparent 52%),
+radial-gradient(circle at center, transparent 0 80px, rgba(255,255,255,.08) 82px 85px, transparent 87px);
+opacity: .45;
 }
 
 .gym-header,
 .battle-area,
 .buttons,
 .result {
-  position: relative;
-  z-index: 2;
+position: relative;
+z-index: 2;
 }
 
 .gym-header {
-  text-align: center;
-  margin-bottom: 40px;
+text-align: center;
+margin-bottom: 40px;
 }
 
 .gym-header h1 {
-  font-size: 42px;
-  color: #ff75ff;
-  text-shadow: 0 0 20px #ff00d4;
+font-size: 42px;
+color: var(--primary);
+text-shadow: 0 0 20px var(--primary);
 }
 
 .gym-header p {
-  color: #ddd;
-  font-size: 18px;
+color: var(--text-main);
+opacity: 0.8;
+font-size: 18px;
 }
 
 .battle-area {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  margin: 50px 0;
+display: flex;
+align-items: center;
+justify-content: space-around;
+margin: 50px 0;
 }
 
 .trainer-side,
 .pokemon-side {
-  width: 240px;
-  height: 260px;
-  background: rgba(20, 0, 30, .75);
-  border: 1px solid rgba(255, 0, 200, .35);
-  border-radius: 25px;
+width: 240px;
+height: 260px;
+background: var(--card-bg);
+border: 1px solid var(--border-color);
+border-radius: 25px;
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
 
-  box-shadow: 0 0 25px rgba(255, 0, 200, .25);
+box-shadow: 0 0 25px var(--primary);
 }
 
 .trainer {
-  font-size: 90px;
-}
-
-.pokemon-side {
-  position: relative;
-  z-index: 5;
+font-size: 90px;
 }
 
 .pokemon-side img {
-  display: block;
-  width: 220px;
-  height: 220px;
-  object-fit: contain;
-  filter: drop-shadow(0 0 25px #ff00d4);
+display: block;
+width: 220px;
+height: 220px;
+object-fit: contain;
+filter: drop-shadow(0 0 25px var(--primary));
 }
 
 .versus {
-  font-size: 55px;
-  font-weight: bold;
-  color: #fff;
-  text-shadow: 0 0 25px #ff00d4;
+font-size: 55px;
+font-weight: bold;
+color: var(--text-main);
+text-shadow: 0 0 25px var(--primary);
 }
 
 .buttons {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
+display: flex;
+justify-content: center;
+gap: 20px;
 }
 
 .buttons button,
 .new-btn {
-  border: none;
-  padding: 14px 24px;
-  border-radius: 15px;
-  cursor: pointer;
+border: none;
+padding: 14px 24px;
+border-radius: 15px;
+cursor: pointer;
 
-  color: white;
-  font-weight: bold;
-  background: linear-gradient(135deg, #ff00c8, #7600ff);
+color: white;
+font-weight: bold;
+background: var(--primary);
 
-  box-shadow: 0 0 18px rgba(255, 0, 200, .5);
-  transition: .3s;
+box-shadow: 0 0 18px var(--primary);
+transition: .3s;
 }
 
 .buttons button:hover,
 .new-btn:hover {
-  transform: translateY(-5px) scale(1.05);
-  box-shadow: 0 0 30px rgba(255, 0, 200, .9);
+transform: translateY(-5px) scale(1.05);
+box-shadow: 0 0 30px var(--primary);
 }
 
 .result {
-  margin-top: 30px;
-  text-align: center;
+margin-top: 30px;
+text-align: center;
 }
 
 .result h2 {
-  color: #ff75ff;
-  text-shadow: 0 0 15px #ff00d4;
+color: var(--primary);
+text-shadow: 0 0 15px var(--primary);
 }
 
 /* TREINADOR */
 
 .trainer-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 12px;
 }
 
 .trainer-img {
-  font-size: 90px;
-  filter: drop-shadow(0 0 20px #ff00d4);
-  animation: trainerFloat 3s ease-in-out infinite;
+font-size: 90px;
+filter: drop-shadow(0 0 20px var(--primary));
+animation: trainerFloat 3s ease-in-out infinite;
 }
 
 .trainer-card span {
-  color: #ff75ff;
-  font-weight: bold;
+color: var(--primary);
+font-weight: bold;
 }
 
-/* LÍDER DO GINÁSIO */
+/* POKEMON */
 
 .pokemon-side h2 {
-  color: gold;
-  text-shadow: 0 0 15px gold;
+color: var(--primary);
+text-shadow: 0 0 15px var(--primary);
 }
 
 .pokemon-side p {
-  text-transform: capitalize;
-  font-weight: bold;
-  color: #ff75ff;
+text-transform: capitalize;
+font-weight: bold;
+color: var(--text-main);
 }
 
 /* TOCHAS */
 
 .torch {
-  position: absolute;
-  top: 25px;
-  font-size: 50px;
-  z-index: 3;
+position: absolute;
+top: 25px;
+font-size: 50px;
+z-index: 3;
 
-  animation: flame 1s infinite alternate;
+animation: flame 1s infinite alternate;
 }
 
 .torch.left {
-  left: 30px;
+left: 30px;
 }
 
 .torch.right {
-  right: 30px;
+right: 30px;
 }
 
 /* FUMAÇA */
 
 .smoke {
-  position: absolute;
-  bottom: -100px;
+position: absolute;
+bottom: -100px;
 
-  width: 180px;
-  height: 180px;
+width: 180px;
+height: 180px;
 
-  border-radius: 50%;
+border-radius: 50%;
 
-  background: rgba(255,255,255,.08);
+background: rgba(255,255,255,.08);
 
-  filter: blur(30px);
+filter: blur(30px);
 
-  animation: smokeUp 8s infinite linear;
+animation: smokeUp 8s infinite linear;
 
-  z-index: 1;
+z-index: 1;
 }
 
 .smoke1 {
-  left: 15%;
+left: 15%;
 }
 
 .smoke2 {
-  right: 15%;
-  animation-delay: 3s;
+right: 15%;
+animation-delay: 3s;
 }
 
 /* ANIMAÇÕES */
 
 @keyframes smokeUp {
-  0% {
-    transform: translateY(0) scale(.8);
-    opacity: 0;
-  }
+0% {
+transform: translateY(0) scale(.8);
+opacity: 0;
+}
 
-  30% {
-    opacity: .4;
-  }
+30% {
+opacity: .4;
+}
 
-  100% {
-    transform: translateY(-650px) scale(2);
-    opacity: 0;
-  }
+100% {
+transform: translateY(-650px) scale(2);
+opacity: 0;
+}
 }
 
 @keyframes flame {
-  from {
-    transform: scale(1) rotate(-3deg);
-  }
+from {
+transform: scale(1) rotate(-3deg);
+}
 
-  to {
-    transform: scale(1.15) rotate(3deg);
-  }
+to {
+transform: scale(1.15) rotate(3deg);
+}
 }
 
 @keyframes trainerFloat {
-  0%,100% {
-    transform: translateY(0);
-  }
+0%,100% {
+transform: translateY(0);
+}
 
-  50% {
-    transform: translateY(-12px);
-  }
+50% {
+transform: translateY(-12px);
+}
 }

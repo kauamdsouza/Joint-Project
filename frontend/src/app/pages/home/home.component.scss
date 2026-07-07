@@ -1,128 +1,133 @@
 .hero{
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  gap:50px;
-  position:relative;
-  overflow:hidden;
-  color:var(--text-main);
+min-height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+gap:50px;
+position:relative;
+overflow:hidden;
+color:var(--text-main);
 
-  background:
-    radial-gradient(circle at top, rgba(255,0,180,0.45), transparent 35%),
-    radial-gradient(circle at bottom, rgba(120,0,255,0.45), transparent 40%),
-    linear-gradient(135deg, #050008, #160020, #320044, #000);
+background:
+radial-gradient(circle at top, var(--primary), transparent 35%),
+radial-gradient(circle at bottom, var(--secondary), transparent 40%),
+linear-gradient(135deg, var(--bg-main), var(--secondary), var(--bg-main));
 
-  animation:fundo 12s ease infinite alternate;
+animation:fundo 12s ease infinite alternate;
 }
 
 /* BOLHA */
 .hero::before{
-  content:"";
-  position:absolute;
-  width:450px;
-  height:450px;
-  background:rgba(255,0,200,0.25);
-  border-radius:50%;
-  filter:blur(80px);
-  animation:energia 6s infinite alternate ease-in-out;
+content:"";
+position:absolute;
+width:450px;
+height:450px;
+background:var(--primary);
+opacity:.25;
+border-radius:50%;
+filter:blur(80px);
+animation:energia 6s infinite alternate ease-in-out;
 }
 
 /* LINHA */
 .hero::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      rgba(255,255,255,0.08),
-      transparent
-    );
-  transform:skewY(-10deg);
-  animation:scan 6s linear infinite;
+content:"";
+position:absolute;
+inset:0;
+background:
+linear-gradient(
+90deg,
+transparent,
+rgba(255,255,255,0.08),
+transparent
+);
+transform:skewY(-10deg);
+animation:scan 6s linear infinite;
 }
 
 .content{
-  position:relative;
-  z-index:2;
-  animation:entrada 1.5s ease;
+position:relative;
+z-index:2;
+animation:entrada 1.5s ease;
 }
 
 .content h1{
-  font-size:4.5rem;
-  text-transform:uppercase;
-  letter-spacing:4px;
-  color:var(--primary);
+font-size:4.5rem;
+text-transform:uppercase;
+letter-spacing:4px;
+color:var(--primary);
 
-  text-shadow:
-    0 0 10px var(--primary),
-    0 0 25px var(--secondary),
-    0 0 45px var(--primary);
+text-shadow:
+0 0 10px var(--primary),
+0 0 25px var(--secondary),
+0 0 45px var(--primary);
 }
 
 .content p{
-  font-size:1.4rem;
-  margin:20px 0 30px;
-  color:var(--text-main);
+font-size:1.4rem;
+margin:20px 0 30px;
+color:var(--text-main);
+opacity:.85;
 }
 
 /* BOTÕES */
 .content button{
-  padding:14px 35px;
-  border:none;
-  border-radius:30px;
-  background:linear-gradient(135deg, var(--primary), var(--secondary));
-  color:white;
-  font-size:1rem;
-  font-weight:bold;
-  cursor:pointer;
+padding:14px 35px;
+border:none;
+border-radius:30px;
 
-  box-shadow:0 0 25px rgba(255,0,200,0.7);
-  transition:0.3s;
+background:linear-gradient(135deg, var(--primary), var(--secondary));
+color:white;
+
+font-size:1rem;
+font-weight:bold;
+cursor:pointer;
+
+box-shadow:0 0 25px var(--primary);
+transition:0.3s;
 }
 
 .content button:hover{
-  transform:scale(1.08) rotate(-2deg);
-  box-shadow:0 0 40px rgba(255,0,200,1);
+transform:scale(1.08) rotate(-2deg);
+box-shadow:0 0 40px var(--primary);
 }
 
 /* CARD */
 .desenvolvedores{
-  position:relative;
-  z-index:2;
-  background:var(--card-bg);
-  padding:25px 45px;
-  border-radius:20px;
-  border:1px solid var(--border-color);
-  backdrop-filter:blur(10px);
+position:relative;
+z-index:2;
+background:var(--card-bg);
+padding:25px 45px;
+border-radius:20px;
+border:1px solid var(--border-color);
+backdrop-filter:blur(10px);
 
-  box-shadow:
-    0 0 20px rgba(255,0,200,0.4),
-    inset 0 0 20px rgba(120,0,255,0.2);
+box-shadow:
+0 0 20px var(--primary),
+inset 0 0 20px var(--secondary);
 
-  min-width:320px;
-  margin-top:40px;
+min-width:320px;
+margin-top:40px;
 
-  animation:flutuar 4s ease-in-out infinite;
+animation:flutuar 4s ease-in-out infinite;
 }
 
 .desenvolvedores h2{
-  margin-bottom:15px;
-  color:var(--primary);
+margin-bottom:15px;
+color:var(--primary);
 }
 
 .desenvolvedores p{
-  margin:10px 0;
-  color:var(--text-main);
+margin:10px 0;
+color:var(--text-main);
 }
 
+/* BOTÕES STACK */
 .buttons{
-  display:flex;
-  flex-direction:column;
-  gap:15px;
-  align-items:center;
+display:flex;
+flex-direction:column;
+gap:15px;
+align-items:center;
 }
