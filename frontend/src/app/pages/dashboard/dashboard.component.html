@@ -4,27 +4,37 @@
 
         <h2>Sistema</h2>
 
-        <a routerLink="/requests">Requests</a>
+        <a (click)="abrirJogo()" [class.active]="tela === 'jogo'">🎮 PokeGame</a>
 
-        <a routerLink="/users">Users</a>
+        <a (click)="abrirGastos()" [class.active]="tela === 'gastos'">💰 Gastos</a>
+
+        <a (click)="abrirConfig()" [class.active]="tela === 'config'">⚙️ Configurações</a>
 
 
-
-
-        <a routerLink="/settings">Configurations</a>
         <a class="report-btn" (click)="report()">
-            Report problems
+            🛠 Report problems
         </a>
 
         <a class="logout-btn" (click)="logout()">
             ⟵ Logout
         </a>
+
     </aside>
 
     <main class="content">
 
-        <h1>Bem-vindo ao Dashboard</h1>
-        <p>Selecione uma opção no menu.</p>
+        <!-- TELA INICIAL -->
+        <div *ngIf="tela === 'home'">
+            <h1>Bem-vindo ao Dashboard</h1>
+            <p>Selecione uma opção no menu.</p>
+        </div>
+
+        <!-- JOGO -->
+        <app-pokemon-game *ngIf="tela === 'jogo'"></app-pokemon-game>
+        <!-- GASTOS -->
+        <app-gastos *ngIf="tela === 'gastos'"></app-gastos>
+
+        <app-config *ngIf="tela === 'config'"></app-config>
 
     </main>
 

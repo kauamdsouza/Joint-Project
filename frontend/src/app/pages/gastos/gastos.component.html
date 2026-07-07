@@ -1,0 +1,46 @@
+<div class="gastos-container">
+    <div class="header">
+        <h2>💰 Controle de Gastos</h2>
+        <div class="total-card">
+            Total: <strong>R$ {{ total.toFixed(2) }}</strong>
+        </div>
+    </div>
+
+    <!-- FORM -->
+    <div class="form">
+        <input type="text" [(ngModel)]="nomeGasto" placeholder="Ex: comida, gasolina..." />
+
+        <input type="number" [(ngModel)]="valorGasto" placeholder="Valor (R$)" />
+
+        <button (click)="adicionarGasto()">
+            ➕ Adicionar
+        </button>
+    </div>
+
+    <!-- TABELA -->
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Descrição</th>
+                    <th>Valor</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let g of gastos; let i = index">
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ g.nome }}</td>
+                    <td class="valor">R$ {{ g.valor.toFixed(2) }}</td>
+                    <td>
+                        <button class="delete-btn" (click)="removerGasto(i)">
+                            🗑️
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

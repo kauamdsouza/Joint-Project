@@ -1,0 +1,62 @@
+<div class="gym">
+
+    <div class="arena">
+
+        <div class="smoke smoke1"></div>
+        <div class="smoke smoke2"></div>
+
+
+
+        <div class="gym-header">
+            <h1>Pokémon Gym Battle</h1>
+            <p>Pedra, Papel e Tesoura</p>
+        </div>
+
+        <div class="battle-area" *ngIf="pokemon">
+
+            <div class="trainer-side">
+                <h2>Você</h2>
+
+                <div class="trainer-card">
+                    <div class="trainer-img">🧢</div>
+                    <span>Treinador</span>
+                </div>
+
+                <div class="action-effect" [ngClass]="acaoPlayer">
+                    {{ getIcone(escolhaPlayer) }}
+                </div>
+            </div>
+
+            <div class="versus">VS</div>
+
+            <div class="pokemon-side">
+                <h2>👑 Líder do Ginásio</h2>
+                <p>{{ pokemon.nome }}</p>
+
+                <img [src]="pokemon.imagem" [alt]="pokemon.nome">
+
+                <div class="action-effect enemy" [ngClass]="acaoPokemon">
+                    {{ getIcone(escolhaPokemon) }}
+                </div>
+            </div>
+
+        </div>
+
+        <div class="buttons">
+            <button (click)="jogar('Pedra')">🪨 Pedra</button>
+            <button (click)="jogar('Papel')">📄 Papel</button>
+            <button (click)="jogar('Tesoura')">✂️ Tesoura</button>
+        </div>
+
+        <div class="result" *ngIf="resultado">
+            <p>Sua escolha: {{ escolhaPlayer }}</p>
+            <p>Escolha do Pokémon: {{ escolhaPokemon }}</p>
+
+            <h2>{{ resultado }}</h2>
+
+            <button class="new-btn" (click)="novoPokemon()">Novo Pokémon</button>
+        </div>
+
+    </div>
+
+</div>
